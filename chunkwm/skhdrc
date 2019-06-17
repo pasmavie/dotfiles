@@ -1,0 +1,50 @@
+# enter fullscreen mode for the focused container
+alt - f : chunkc tiling::window --toggle fullscreen
+
+# change focus between tiling / floating windows
+alt - space : chunkc tiling::window --toggle float
+
+# kill focused window
+#alt - w : chunkc tiling::window --close
+
+# change focus
+alt - h : chunkc tiling::window --focus west
+alt - j : chunkc tiling::window --focus south
+alt - k : chunkc tiling::window --focus north
+alt - l : chunkc tiling::window --focus east
+
+# move focused window
+shift + alt - h : chunkc tiling::window --warp west
+shift + alt - j : chunkc tiling::window --warp south
+shift + alt - k : chunkc tiling::window --warp north
+shift + alt - l : chunkc tiling::window --warp east
+
+# move focused container to workspace
+alt - 1 : chunkc tiling::window --send-to-desktop 1
+alt - 2 : chunkc tiling::window --send-to-desktop 2
+alt - 3 : chunkc tiling::window --send-to-desktop 3
+alt - 4 : chunkc tiling::window --send-to-desktop 4
+alt - 5 : chunkc tiling::window --send-to-desktop 5
+alt - 6 : chunkc tiling::window --send-to-desktop 6
+
+# defines a new mode 'resize' with an on_enter command, that captures keypresses
+:: resize @ #: chunkc border::color 0xff24ccaa
+# from 'default' mode, activate mode 'resize'
+shift + alt - r ; resize  
+# from 'resize' mode, activate mode 'default'
+resize < escape ; default
+# resize window in different directions
+resize < left : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge west; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge east;
+resize < down : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge south; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge north;
+resize < up : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge north; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge south;
+resize < right : chunkc tiling::window --use-temporary-ratio 0.05 --adjust-window-edge east; chunkc tiling::window --use-temporary-ratio -0.05 --adjust-window-edge west;
+# reset size of all windows
+shift + alt - 0 : chunkc tiling::desktop --equalize
+
+# change layout of desktop
+#shift + alt - e : chunkc tiling::desktop --layout bsp
+#shift + alt - s : chunkc tiling::desktop --layout monocle
+alt - r : chunkc tiling::desktop --rotate 90
+
+# open terminal
+alt - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~

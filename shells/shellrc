@@ -1,0 +1,18 @@
+#!/bin/sh
+
+export PAGER=less
+export LESS="-iMSx4 -FX"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$PATH:/Applications/Julia-1.1.app/Contents/Resources/julia/bin"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export GOPATH=$HOME/go
+export PSQL_EDITOR="/usr/local/bin/nvim"
+
+# aliases
+alias tmux='TERM=screen-256color tmux -u'
+alias ls='ls -GFh'
+alias ll='ls -l'
+alias py='ipython3'
+alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
+alias gitlazy='git add -A; git commit -am.; git push'
