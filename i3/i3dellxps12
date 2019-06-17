@@ -1,0 +1,14 @@
+# Add these to .i3/config (or .config/i3/config, whatever...)
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# https://www.reddit.com/r/i3wm/comments/9ifpfb/dellxps_13_brightness_keys/
+# Add the following to your /etc/X11/xorg.conf. Create the file if it doesn't exist.
+
+Section "Device"
+    Identifier  "Card0"
+    Driver      "intel"
+    Option      "Backlight"  "intel_backlight"
+EndSection
+
+# Close the file, save and restart xorg.

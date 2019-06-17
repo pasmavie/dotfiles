@@ -1,0 +1,171 @@
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+"if PlugInstall -sync did not work, run it again :PlugInstall --sync"
+call plug#begin('~/.vim/plugged')
+    Plug 'altercation/vim-colors-solarized'
+    Plug 'vim-airline/vim-airline'                                    " Powerline-style bar
+    Plug 'vim-airline/vim-airline-themes'                             " Airline themes
+    Plug 'tpope/vim-fugitive'                                         " Show git branch in airline + use :Gedit :Gsplit :Gvsplit etc
+    Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
+    Plug 'jalvesaq/vimcmdline'                                        " Great REPL integration
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }  " GoLang pack for Vim
+    let g:polyglot_disabled = ['go']
+    let g:default_julia_version = '1.1'
+    let g:polyglot_disabled = ['python']
+	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'} 
+    Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
+    Plug 'ncm2/ncm2'                                                  " AutoCompletion!
+    Plug 'roxma/nvim-yarp'
+    Plug 'ncm2/ncm2-bufword'                                          " Current Buffer
+    Plug 'ncm2/ncm2-path'                                             " Path
+    Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                    " REQUIRES: brew tap caskroom/fonts && brew cask install font-hack-nerd-font
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
+call plug#end()
+
+let home = $HOME
+" Py stuff
+let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
+let g:loaded_python_provider = 1 "disable python2 support
+
+" Colorscheme
+syntax enable
+set background=dark
+colorscheme solarized
+
+" General
+set ruler
+set nu
+set cursorline
+set lazyredraw      " redraw only when we need to.
+
+" Movements
+nnoremap B ^      " move to beginning/end of line
+nnoremap E $
+inoremap jj <esc>
+inoremap Â <esc>
+
+" Cycle buffers
+nnoremap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+nnoremap <C-q> :bd<CR>
+
+" Search
+set incsearch                             " search as chars are entered
+set hlsearch                              " highlight matches
+nnoremap <leader>/ :nohlsearch<CR>  " turn off search highlight
+
+" OS Clipboard interaction
+if !has('nvim')
+  vmap <C-y> :w !pbcopy<CR><CR>
+endif
+vnoremap <C-y> "*y
+
+" Mouse
+set mouse=a
+if !has('nvim')
+    set ttymouse=xterm2
+endif
+
+" Tabs and indent
+set tabstop=4       " Number of spaces a tab counts for
+set softtabstop=4   " Number of spaces inserted with tab
+set expandtab       " Turns tab into spaces
+set shiftwidth=4    " Indents will have a width of 2 spaces
+
+" Nerdtree
+map - :NERDTreeToggle<CR>
+
+" airline
+let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#fnamecollapse = 0
+let g:airline#extensions#virtualenv#enabled = 1
+
+" NCM2
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+" suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
+set shortmess+=c
+" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+inoremap <c-c> <ESC>
+" Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" wrap existing omnifunc
+au User Ncm2Plugin call ncm2#register_source({
+        \ 'name' : 'css',
+        \ 'priority': 9,
+        \ 'subscope_enable': 1,
+        \ 'scope': ['css','scss'],
+        \ 'mark': 'css',
+        \ 'word_pattern': '[\w\-]+',
+        \ 'complete_pattern': ':\s*',
+        \ 'on_complete': ['ncm2#on_complete#delay', 180, 
+                       \  'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
+        \ })
+
+" Langugage Servers!
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_settingsPath = home.'/.vim/settings.json'
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_serverCommands = {
+    \ 'python': [home.'/miniconda3/envs/nvim_env/bin/pyls'],
+    \ 'cpp': ['clangd'],
+    \ 'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', 'using LanguageServer; using Pkg; import StaticLint; import SymbolServer; env_path = dirname(Pkg.Types.Context().env.project_file); debug = false; server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, "", Dict()); server.runlinter = true; run(server);']
+    \}
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
+" Black
+autocmd BufWritePre *.py execute ':Black'
+
+" Vimcmdline
+" vimcmdline mappings
+let cmdline_map_start          = '<LocalLeader>s'
+let cmdline_map_send           = '<Space>'
+let cmdline_map_send_and_stay  = '<LocalLeader><Space>'
+let cmdline_map_source_fun     = '<LocalLeader>f'
+let cmdline_map_send_paragraph = '<LocalLeader>p'
+let cmdline_map_send_block     = '<LocalLeader>b'
+let cmdline_map_quit           = '<LocalLeader>q'
+" vimcmdline options
+let cmdline_vsplit      = 0      " Split the window vertically
+let cmdline_esc_term    = 1      " Remap <Esc> to :stopinsert in Neovim's terminal
+let cmdline_in_buffer   = 1      " Start the interpreter in a Neovim's terminal
+let cmdline_term_height = 25     " Initial height of interpreter window or pane
+let cmdline_term_width  = 80     " Initial width of interpreter window or pane
+let cmdline_tmp_dir     = '/tmp' " Temporary directory to save files
+let cmdline_outhl       = 1      " Syntax highlight the output
+let cmdline_auto_scroll = 1      " Keep the cursor at the end of terminal (nvim)
+" file specific
+let cmdline_app           = {}
+let cmdline_app['python'] = 'ipython'
+let cmdline_app['julia'] = 'julia'
+let cmdline_app['ruby']   = 'pry'
+let cmdline_app['sh']     = 'bash'
+
+if has('persistent_undo')
+  set undofile          " Enable persistent undo so that undo history persists across vim sessions
+  set undodir=~/.vim/undo
+endif
+
+" Encryption
+if !has('nvim')
+    set cryptmethod=blowfish2
+    set nobackup
+    set nowritebackup
+    set viminfo=
+endif
