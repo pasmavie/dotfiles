@@ -156,16 +156,3 @@ let cmdline_app['python'] = 'ipython'
 let cmdline_app['julia'] = 'julia'
 let cmdline_app['ruby']   = 'pry'
 let cmdline_app['sh']     = 'bash'
-
-if has('persistent_undo')
-  set undofile          " Enable persistent undo so that undo history persists across vim sessions
-  set undodir=~/.vim/undo
-endif
-
-" Encryption
-if !has('nvim')
-    set cryptmethod=blowfish2
-    set nobackup
-    set nowritebackup
-    set viminfo=
-endif
