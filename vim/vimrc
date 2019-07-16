@@ -14,7 +14,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'jalvesaq/vimcmdline'                                        " Great REPL integration
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }  " GoLang pack for Vim
     let g:polyglot_disabled = ['go']
-    let g:default_julia_version = '1.1'
     let g:polyglot_disabled = ['python']
 	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'} 
     Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
@@ -122,8 +121,6 @@ let g:LanguageClient_loadSettings = 1
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_serverCommands = {
     \ 'python': [home.'/miniconda3/envs/nvim_env/bin/pyls'],
-    \ 'cpp': ['clangd'],
-    \ 'julia': ['julia', '--startup-file=no', '--history-file=no', '-e', 'using LanguageServer; using Pkg; import StaticLint; import SymbolServer; env_path = dirname(Pkg.Types.Context().env.project_file); debug = false; server = LanguageServer.LanguageServerInstance(stdin, stdout, debug, env_path, "", Dict()); server.runlinter = true; run(server);']
     \}
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
