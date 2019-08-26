@@ -12,16 +12,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'                                         " Show git branch in airline + use :Gedit :Gsplit :Gvsplit etc
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     Plug 'jalvesaq/vimcmdline'                                        " Great REPL integration
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': 'go' }  " GoLang pack for Vim
-    let g:polyglot_disabled = ['go']
     let g:polyglot_disabled = ['python']
-	Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins', 'for': 'python'} 
     Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
     Plug 'ncm2/ncm2'                                                  " AutoCompletion!
     Plug 'roxma/nvim-yarp'
     Plug 'ncm2/ncm2-bufword'                                          " Current Buffer
     Plug 'ncm2/ncm2-path'                                             " Path
-    Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                    " REQUIRES: brew tap caskroom/fonts && brew cask install font-hack-nerd-font
@@ -33,6 +29,10 @@ let home = $HOME
 " Py stuff
 let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
+
+" Disable annoying SQL completion
+let g:loaded_sql_completion = 0
+let g:omni_sql_no_default_maps = 1
 
 " Colorscheme
 syntax enable
@@ -131,9 +131,6 @@ let g:LanguageClient_serverCommands = {
 
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-
-" Black
-autocmd BufWritePre *.py execute ':Black'
 
 " Vimcmdline
 " vimcmdline mappings
