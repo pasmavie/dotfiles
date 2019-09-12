@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'                                         " Show git branch in airline + use :Gedit :Gsplit :Gvsplit etc
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     Plug 'jalvesaq/vimcmdline'                                        " Great REPL integration
+    Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
     let g:polyglot_disabled = ['python']
     Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
     Plug 'ncm2/ncm2'                                                  " AutoCompletion!
@@ -29,6 +30,7 @@ let home = $HOME
 " Py stuff
 let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
+autocmd BufWritePre *.py execute ':Black'
 
 " Disable annoying SQL completion
 let g:loaded_sql_completion = 0
