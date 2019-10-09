@@ -6,31 +6,36 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 "if PlugInstall -sync did not work, run it again :PlugInstall --sync"
 call plug#begin('~/.vim/plugged')
+    " Appearence
     Plug 'altercation/vim-colors-solarized'
     Plug 'vim-airline/vim-airline'                                    " Powerline-style bar
     Plug 'vim-airline/vim-airline-themes'                             " Airline themes
     Plug 'tpope/vim-fugitive'                                         " Show git branch in airline + use :Gedit :Gsplit :Gvsplit etc
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                    " REQUIRES: brew tap caskroom/fonts && brew cask install font-hack-nerd-font
+    Plug 'ryanoasis/vim-devicons'
+    " Accessibility
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     Plug 'jalvesaq/vimcmdline'                                        " Great REPL integration
-    Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
-    let g:polyglot_disabled = ['python']
+    " Code completion, syntax highlighting etc
+    Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
     Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
     Plug 'ncm2/ncm2'                                                  " AutoCompletion!
     Plug 'roxma/nvim-yarp'
     Plug 'ncm2/ncm2-bufword'                                          " Current Buffer
     Plug 'ncm2/ncm2-path'                                             " Path
-    Plug 'scrooloose/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                    " REQUIRES: brew tap caskroom/fonts && brew cask install font-hack-nerd-font
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
+    " Py specific
+    let g:polyglot_disabled = ['python']
+    Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
 call plug#end()
 
 let home = $HOME
 " Py stuff
 let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
+" let g:black_linelength = 160
 
 " Disable annoying SQL completion
 let g:loaded_sql_completion = 0
