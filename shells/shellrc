@@ -2,7 +2,6 @@
 
 export PAGER=less
 export LESS="-iMSx4 -FX"
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="$PATH:/Applications/Julia-1.1.app/Contents/Resources/julia/bin"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
