@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Language env 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 export PAGER=less
 export LESS="-iMSx4 -FX"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
