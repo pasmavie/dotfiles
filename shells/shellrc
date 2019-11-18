@@ -14,7 +14,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate pymc37
+conda activate pm
 
 # Language env 
 export LC_ALL=en_US.UTF-8
