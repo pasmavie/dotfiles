@@ -2,3 +2,4 @@
 \pset border 2
 \timing
 \set AUTOCOMMIT off
+\set r 'rollback;'
