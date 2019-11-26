@@ -9,7 +9,9 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     " Accessibility
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     " Code completion, syntax highlighting etc
+    Plug 'derekwyatt/vim-scala'
     Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
+    let g:polyglot_disabled = ['scala']
     Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
 call plug#end()
 
