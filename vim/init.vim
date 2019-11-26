@@ -10,13 +10,6 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     " Code completion, syntax highlighting etc
     Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
-    Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh'}
-    Plug 'ncm2/ncm2'                                                  " AutoCompletion!
-    Plug 'roxma/nvim-yarp'
-    Plug 'ncm2/ncm2-bufword'                                          " Current Buffer
-    Plug 'ncm2/ncm2-path'                                             " Path
-    " Py specific
-    let g:polyglot_disabled = ['python']
     Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
 call plug#end()
 
@@ -92,39 +85,3 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#fnamecollapse = 0
 let g:airline#extensions#virtualenv#enabled = 1
-
-" NCM2
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not found' messages
-set shortmess+=c
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-inoremap <c-c> <ESC>
-" Use <TAB> to select the popup menu:
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-" wrap existing omnifunc
-au User Ncm2Plugin call ncm2#register_source({
-        \ 'name' : 'css',
-        \ 'priority': 9,
-        \ 'subscope_enable': 1,
-        \ 'scope': ['css','scss'],
-        \ 'mark': 'css',
-        \ 'word_pattern': '[\w\-]+',
-        \ 'complete_pattern': ':\s*',
-        \ 'on_complete': ['ncm2#on_complete#delay', 180, 
-                       \  'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-        \ })
-
-" Langugage Servers!
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_settingsPath = home.'/.vim/settings.json'
-let g:LanguageClient_loadSettings = 1
-let g:LanguageClient_diagnosticsEnable = 0
-let g:LanguageClient_serverCommands = {
-    \ 'python': [home.'/miniconda3/envs/nvim_env/bin/pyls'],
-    \}
-
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
