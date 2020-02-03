@@ -7,6 +7,7 @@ echo "Creating symlinks"
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -s ~/dotfiles/shells/zshrc ~/.zshrc
   ln -s ~/dotfiles/shells/bashrc ~/.bash_profile;
+  ln -s ~/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
   #profile, if doesnt exist
   touch ~/.profile
   ###########
@@ -29,6 +30,7 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   ln -s ~/dotfiles/shells/zshrc ~/.zshrc
   ln -s ~/dotfiles/shells/bash_profile ~/.bashrc
   ln -s ~/dotfiles/shells/inputrc ~/.inputrc
+  ln -s ~/dotfiles/matplotlibrc ~/.config/matplotlib/matplotlibrc
   echo "skipping links to bash_profile and chunkWM"
 fi
 
