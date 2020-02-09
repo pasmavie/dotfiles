@@ -20,7 +20,8 @@ inoremap Â <esc>
 " Cycle buffers
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
-nnoremap <C-q> :bd<CR>
+" move to a different buffer and and delete the one we just moved away from
+nnoremap <C-q> :bp|bd #<CR> 
 
 " Search
 set incsearch                             " search as chars are entered
