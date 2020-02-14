@@ -9,18 +9,25 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     " Accessibility
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     " Code completion, syntax highlighting etc
+    Plug 'davidhalter/jedi-vim'
     Plug 'derekwyatt/vim-scala'
     Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
-    let g:polyglot_disabled = ['scala']
+    let g:polyglot_disabled = ['scala', 'python']
     Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
 call plug#end()
 
 let home = $HOME
-" Py stuff
+" ------ "
+" PYTHON "
+" ------ "
 let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
+" JEDI
+let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#popup_on_dot = 0
+" BLACK
 " autocmd BufWritePre *.py execute ':Black'
-" let g:black_linelength = 160
+let g:black_linelength = 160
 
 " Disable annoying SQL completion
 let g:loaded_sql_completion = 0
