@@ -9,11 +9,12 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     " Accessibility
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
     " Code completion, syntax highlighting etc
+    Plug 'ervandew/supertab'                                          " Use tab instead of fucking C-x
     Plug 'davidhalter/jedi-vim'
     Plug 'derekwyatt/vim-scala'
     Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
     let g:polyglot_disabled = ['scala', 'python']
-    Plug 'ambv/black', {'for': 'python'}                              " Uncompromised PEP8 formatter
+    Plug 'dense-analysis/ale'                                         " Linting
 call plug#end()
 
 let home = $HOME
@@ -25,9 +26,14 @@ let g:loaded_python_provider = 1 "disable python2 support
 " JEDI
 let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#popup_on_dot = 0
-" BLACK
-" autocmd BufWritePre *.py execute ':Black'
-let g:black_linelength = 160
+" ALE
+let g:ale_completion_enabled = 1 " Enable completion where available.
+let g:ale_python_flake8_options = '--ignore E501,E731' " Disable line too long error
+let g:ale_python_autopep8_options = '--ignore E501,E731'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_fix_on_save = 0 " Do not run autopep8 on save to autoformat code
+let g:ale_fixers = { 'python': ['autopep8'] }
+let g:ale_linters = { 'python': ['flake8', 'mypy'] }
 
 " Disable annoying SQL completion
 let g:loaded_sql_completion = 0
