@@ -1,48 +1,59 @@
 #!/usr/bin/env bash 
+
+# config dir
+if [ ! -d $HOME/.config ]; then mkdir $HOME/.config; fi
+
+# tmux
 echo "Downloading tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+
+ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
+# dircolors
+ln -s $HOME/dotfiles/dircolors $HOME/.dircolors
+
+# nvim
+if [ ! -d $HOME/.config/nvim ]; then mkdir $HOME/.config/nvim; fi
+ln -s $HOME/dotfiles/vim/init.vim $HOME/.config/nvim/init.vim
+ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+
+# jetbrains
+ln -s $HOME/dotfiles/vim/ideavimrc $HOME/.ideavimrc
+
+# psql
+ln -s $HOME/dotfiles/psqlrc $HOME/.psqlrc
+
+# python
+ln -s $HOME/dotfiles/python/mypy.ini $HOME/.mypy.ini
+
+# zsh
+ln -s $HOME/dotfiles/shells/zshrc $HOME/.zshrc
 
 echo "Creating symlinks"
-#bash_profile OSX
+# bash_profile OSX
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  ln -s ~/dotfiles/shells/zshrc ~/.zshrc
-  ln -s ~/dotfiles/shells/bashrc ~/.bash_profile;
-  ln -s ~/dotfiles/matplotlibrc ~/.matplotlib/matplotlibrc
-  #profile, if doesnt exist
-  touch ~/.profile
+  ln -s $HOME/dotfiles/shells/bashrc $HOME/.bash_profile
+  if [ ! -d $HOME/.matplotlib ]; then mkdir $HOME/.matplotlib; fi
+  ln -s $HOME/dotfiles/matplotlibrc $HOME/.matplotlib/matplotlibrc
+  # profile, if doesnt exist
+  touch $HOME/.profile
   ###########
   # chunkwm #
   ###########
-
   # chmod +x chunkwmrc
   # chmod +x skhdrc
-  # ln -s ~/dotfiles/chunkwm/chunkwmrc ~/.chunkwmrc
-  # ln -s ~/dotfiles/chunkwm_plugins ~/.chunkwm_plugins
-  # ln -s ~/dotfiles/chunkwm/skhdrc ~/.skhdrc
-  # if [ -d ~/.config/kitty ]; then
-  #   mv ~/.config/kitty/kitty.conf ~/.config/kitty/oldkitty.conf
-  #   ln -s ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+  # ln -s $HOME/dotfiles/chunkwm/chunkwmrc $HOME/.chunkwmrc
+  # ln -s $HOME/dotfiles/chunkwm_plugins $HOME/.chunkwm_plugins
+  # ln -s $HOME/dotfiles/chunkwm/skhdrc $HOME/.skhdrc
+  # if [ -d $HOME/.config/kitty ]; then
+  #   mv $HOME/.config/kitty/kitty.conf $HOME/.config/kitty/oldkitty.conf
+  #   ln -s $HOME/dotfiles/kitty.conf $HOME/.config/kitty/kitty.conf
   # else
   #   echo "can't find a .config dir for kitty terminal, make sure the program is installed correctly"
   # fi
   
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ln -s ~/dotfiles/shells/zshrc ~/.zshrc
-  ln -s ~/dotfiles/shells/bash_profile ~/.bashrc
-  ln -s ~/dotfiles/shells/inputrc ~/.inputrc
-  ln -s ~/dotfiles/matplotlibrc ~/.config/matplotlib/matplotlibrc
-  echo "skipping links to bash_profile and chunkWM"
+  ln -s $HOME/dotfiles/shells/bash_profile $HOME/.bashrc
+  ln -s $HOME/dotfiles/shells/inputrc $HOME/.inputrc
+  if [ ! -d $HOME/.config/matplotlib ]; then mkdir $HOME/.config/matplotlib; fi
+  ln -s $HOME/dotfiles/matplotlibrc $HOME/.config/matplotlib/matplotlibrc
 fi
-
-#tmux
-ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
-# dircolors
-ln -s ~/dotfiles/dircolors ~/.dircolors
-#vim
-ln -s ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim
-ln -s ~/dotfiles/vim/vimrc ~/.vimrc
-ln -s ~/dotfiles/vim/ideavimrc ~/.ideavimrc
-#if [ ! -d ~/.vim/colors ]; then mkdir ~/.vim; mkdir ~/.vim/colors; fi
-#ln -s ~/dotfiles/vim/solarized.vim ~/.vim/colors/solarized.vim
-#psql
-ln -s ~/dotfiles/psqlrc ~/.psqlrc
