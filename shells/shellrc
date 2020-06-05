@@ -14,7 +14,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-conda activate pm
+conda activate ml
 
 # Language env 
 export LC_ALL=en_US.UTF-8
