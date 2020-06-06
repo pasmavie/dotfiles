@@ -24,8 +24,9 @@ let home = $HOME
 let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
 " JEDI
+let g:jedi#completions_enabled = 1 
 let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = 'right'
-let g:jedi#popup_on_dot = 0
+let g:jedi#popup_on_dot = 1
 " ALE
 let g:ale_completion_enabled = 0 " Enable completion where available.
 let g:ale_python_flake8_options = '--ignore E501,E731,E203,E266,F403,F401'
