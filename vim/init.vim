@@ -11,9 +11,9 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     " Code completion, syntax highlighting etc
     Plug 'ervandew/supertab'                                          " Use tab instead of fucking C-x
     Plug 'davidhalter/jedi-vim'
-    Plug 'derekwyatt/vim-scala'
+    " Plug 'derekwyatt/vim-scala'
     Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
-    let g:polyglot_disabled = ['scala', 'python']
+    let g:polyglot_disabled = ['python'] " 'scala', 
     Plug 'dense-analysis/ale'                                         " Linting
 call plug#end()
 
@@ -24,10 +24,10 @@ let home = $HOME
 let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
 " JEDI
-let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = 'right'
 let g:jedi#popup_on_dot = 0
 " ALE
-let g:ale_completion_enabled = 1 " Enable completion where available.
+let g:ale_completion_enabled = 0 " Enable completion where available.
 let g:ale_python_flake8_options = '--ignore E501,E731,E203,E266,F403,F401'
 let g:ale_python_autopep8_options = '--ignore E501,E731,E203,E266,F403,F401'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
