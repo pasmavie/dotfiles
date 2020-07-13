@@ -29,8 +29,8 @@ let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = 'rig
 let g:jedi#popup_on_dot = 1
 " ALE
 let g:ale_completion_enabled = 0 " Enable completion where available.
-let g:ale_python_flake8_options = '--ignore E501,E731,E203,E266,F403,F401'
-let g:ale_python_autopep8_options = '--ignore E501,E731,E203,E266,F403,F401'
+let g:ale_python_flake8_options = '--ignore E501,E731,E203,E266,F403,F401,W503'
+let g:ale_python_autopep8_options = '--ignore E501,E731,E203,E266,F403,F401,W503'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_fix_on_save = 0 " Do not run autopep8 on save to autoformat code
 " let g:ale_fixers = { 'python': ['autopep8'] }
