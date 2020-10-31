@@ -8,12 +8,12 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     Plug 'ryanoasis/vim-devicons'
     " Accessibility
     Plug 'christoomey/vim-tmux-navigator'                             " Move smoothly between vim and tmux panes
-    " Code completion, syntax highlighting etc
     Plug 'ervandew/supertab'                                          " Use tab instead of fucking C-x
-    Plug 'davidhalter/jedi-vim'
-    " Plug 'derekwyatt/vim-scala'
+    " Code completion, syntax highlighting, linting etc
     Plug 'sheerun/vim-polyglot'                                       " A collection of language packs for Vim
-    let g:polyglot_disabled = ['python'] " 'scala', 
+    let g:polyglot_disabled = ['python'] ", 'scala']
+    "Plug 'derekwyatt/vim-scala'
+    Plug 'davidhalter/jedi-vim'
     Plug 'dense-analysis/ale'                                         " Linting
 call plug#end()
 
