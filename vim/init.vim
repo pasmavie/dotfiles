@@ -14,11 +14,14 @@ call plug#begin('~/.vim/plugged') ":PlugInstall --sync
     let g:polyglot_disabled = ['python', 'scala']
     "Plug 'derekwyatt/vim-scala'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'davidhalter/jedi-vim'
-    Plug 'dense-analysis/ale'                                         " Linting
+    "Plug 'davidhalter/jedi-vim'
+    "Plug 'dense-analysis/ale'                                         " Linting
 call plug#end()
 
 let home = $HOME
+
+tnoremap <Esc> <C-\><C-n>  " Exit terminal mode
+
 " ------ "
 " PYTHON "
 " ------ "
@@ -26,17 +29,22 @@ let g:python3_host_prog = '/usr/local/bin/python'
 "let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
 " JEDI
-let g:jedi#completions_enabled = 1 
-let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = 'right'
-let g:jedi#popup_on_dot = 1
+""let g:jedi#completions_enabled = 1 
+""let g:jedi#use_tabs_not_buffers = 1 "or let g:jedi#use_splits_not_buffers = 'right'
+""let g:jedi#popup_on_dot = 1
 " ALE
-let g:ale_completion_enabled = 0 " Enable completion where available.
-let g:ale_python_flake8_options = '--ignore E501,E731,E203,E266,F403,F401,W503'
-let g:ale_python_autopep8_options = '--ignore E501,E731,E203,E266,F403,F401,W503'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_fix_on_save = 0 " Do not run autopep8 on save to autoformat code
-" let g:ale_fixers = { 'python': ['autopep8'] }
-let g:ale_linters = { 'python': ['flake8', 'mypy'] }
+""let g:ale_completion_enabled = 0 " Enable completion where available.
+""let g:ale_python_flake8_options = '--ignore E501,E731,E203,E266,F403,F401,W503'
+""let g:ale_python_autopep8_options = '--ignore E501,E731,E203,E266,F403,F401,W503'
+""let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+""let g:ale_fix_on_save = 0 " Do not run autopep8 on save to autoformat code
+""" let g:ale_fixers = { 'python': ['autopep8'] }
+""let g:ale_linters = { 'python': ['flake8', 'mypy'] }
+
+if has(('persistent_undo'))
+set undofile          " Enable persistent undo so that undo history persists across vim sessions
+set undodir=~/.vim/undo
+endif
 
 " Disable annoying SQL completion
 let g:loaded_sql_completion = 0
@@ -210,7 +218,7 @@ nnoremap <leader>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
 " Show all diagnostics
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <space>e  :<C-u>CocList extensions<CR>
 " Show commands
 nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
