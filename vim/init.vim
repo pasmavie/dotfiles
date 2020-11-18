@@ -25,8 +25,8 @@ tnoremap <Esc> <C-\><C-n>  " Exit terminal mode
 " ------ "
 " PYTHON "
 " ------ "
-let g:python3_host_prog = '/usr/local/bin/python'
-"let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
+"let g:python3_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = home.'/miniconda3/envs/nvim_env/bin/python'
 let g:loaded_python_provider = 1 "disable python2 support
 " JEDI
 ""let g:jedi#completions_enabled = 1 
