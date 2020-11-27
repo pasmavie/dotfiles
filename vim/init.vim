@@ -64,7 +64,7 @@ set cursorline
 set lazyredraw      " redraw only when we need to.
 
 " Movements
-nnoremap B ^      " move to beginning/end of line
+nnoremap B ^ 
 nnoremap E $
 inoremap jj <esc>
 inoremap Â <esc>
@@ -73,6 +73,8 @@ inoremap Â <esc>
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-q> :bd<CR>
+command Bd bp\|bd \#
+" bp("buffer previous") moves us to a different buffer in the current window (bn would work, too), then bd # ("buffer delete" "alternate file") deletes the buffer we just moved away from https://stackoverflow.com/questions/4465095/vim-delete-buffer-without-losing-the-split-window
 
 " Search
 set incsearch                             " search as chars are entered
