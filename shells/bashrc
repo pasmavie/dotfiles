@@ -8,6 +8,5 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 # dotfiles
 source $HOME/dotfiles/shells/shellrc
 
-
 # machine spec env variables 
 source $HOME/.profile

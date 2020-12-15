@@ -23,8 +23,8 @@ export LANG=en_US.UTF-8
 export PAGER=less
 export LESS="-iMSx4 -FX"
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="$PATH:/Applications/Julia-1.4.app/Contents/Resources/julia/bin"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export PATH="$PATH:/Applications/Julia-1.4.app/Contents/Resources/julia/bin"
+# export PATH="/usr/local/opt/llvm/bin:$PATH"
 export GOPATH=$HOME/go
 export PSQL_EDITOR="/usr/local/bin/nvim"
 
@@ -35,3 +35,7 @@ alias ll='ls -l'
 alias py='ipython3'
 alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
 alias gitlazy='git add -A; git commit -am.; git push'
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
