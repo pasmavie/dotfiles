@@ -33,8 +33,10 @@ alias tmux='TERM=screen-256color tmux -u'
 alias ls='ls -GFh'
 alias ll='ls -l'
 alias py='ipython3'
-alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
+# alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
 alias gitlazy='git add -A; git commit -am.; git push'
+alias t0='tmux a -t0'
+alias t1='tmux a -t1'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
