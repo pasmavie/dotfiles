@@ -55,7 +55,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 " transparent vim
-hi Normal guibg=NONE ctermbg=NONE 
+" hi Normal guibg=NONE ctermbg=NONE 
 
 " General
 set ruler
