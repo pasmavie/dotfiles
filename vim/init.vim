@@ -55,7 +55,7 @@ syntax enable
 set background=dark
 colorscheme solarized
 " transparent vim
-hi Normal guibg=NONE ctermbg=NONE 
+" hi Normal guibg=NONE ctermbg=NONE 
 
 " General
 set ruler
@@ -109,7 +109,6 @@ set shiftwidth=4    " Indents will have a width of 2 spaces
 map - :NERDTreeToggle<CR>
 
 " airline
-let g:airline_powerline_fonts=1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
