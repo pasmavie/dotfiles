@@ -32,8 +32,6 @@ echo "Creating symlinks"
 # bash_profile OSX
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -s $HOME/dotfiles/shells/bashrc $HOME/.bash_profile
-  if [ ! -d $HOME/.matplotlib ]; then mkdir $HOME/.matplotlib; fi
-  ln -s $HOME/dotfiles/matplotlibrc $HOME/.matplotlib/matplotlibrc
   # profile, if doesnt exist
   touch $HOME/.profile
   ###########
@@ -54,6 +52,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   ln -s $HOME/dotfiles/shells/bashrc $HOME/.bashrc
   ln -s $HOME/dotfiles/shells/inputrc $HOME/.inputrc
-  if [ ! -d $HOME/.config/matplotlib ]; then mkdir $HOME/.config/matplotlib; fi
-  ln -s $HOME/dotfiles/matplotlibrc $HOME/.config/matplotlib/matplotlibrc
 fi
+
+# if [ ! -d $HOME/.config/matplotlib ]; then mkdir $HOME/.config/matplotlib; fi
+# ln -s $HOME/dotfiles/matplotlibrc $HOME/.config/matplotlib/matplotlibrc
