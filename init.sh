@@ -52,7 +52,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   # fi
   
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  ln -s $HOME/dotfiles/shells/bash_profile $HOME/.bashrc
+  ln -s $HOME/dotfiles/shells/bashrc $HOME/.bashrc
   ln -s $HOME/dotfiles/shells/inputrc $HOME/.inputrc
   if [ ! -d $HOME/.config/matplotlib ]; then mkdir $HOME/.config/matplotlib; fi
   ln -s $HOME/dotfiles/matplotlibrc $HOME/.config/matplotlib/matplotlibrc
