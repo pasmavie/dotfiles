@@ -12,9 +12,13 @@ ln -s $HOME/dotfiles/tmux.conf $HOME/.tmux.conf
 ln -s $HOME/dotfiles/dircolors $HOME/.dircolors
 
 # nvim
-if [ ! -d $HOME/.config/nvim ]; then mkdir $HOME/.config/nvim; fi
-ln -s $HOME/dotfiles/vim/init.vim $HOME/.config/nvim/init.vim
-ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+# if [ ! -d $HOME/.config/nvim ]; then mkdir $HOME/.config/nvim; fi
+# ln -s $HOME/dotfiles/vim/init.vim $HOME/.config/nvim/init.vim
+# ln -s $HOME/dotfiles/vim/vimrc $HOME/.vimrc
+# spacevim
+if [ ! -d $HOME/.SpaceVim.d ]; then echo 'SpaceVim config folder not found. Make sure SpaceVim is installed'; fi
+if [ -f $HOME/.SpaceVim.d/init.toml ]; then echo 'SpaceVim - Replacing the existing config file with a symlink to dotfiles/spacevim/init.toml'; mv $HOME/.SpaceVim.d/init.toml $HOME/.SpaceVim.d/old_init.toml;fi
+ln -s $HOME/dotfiles/spacevim/init.toml $HOME/.SpaceVim.d/init.toml
 
 # jetbrains
 ln -s $HOME/dotfiles/vim/ideavimrc $HOME/.ideavimrc
