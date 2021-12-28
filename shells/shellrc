@@ -20,18 +20,18 @@ unset __conda_setup
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PAGER=less
-export LESS="-iMSx4 -FX"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+# export PAGER=less
+# export LESS="-iMSx4 -FX"
+# export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # export PATH="$PATH:/Applications/Julia-1.4.app/Contents/Resources/julia/bin"
 # export PATH="/usr/local/opt/llvm/bin:$PATH"
-export GOPATH=$HOME/go
-export PSQL_EDITOR="/usr/local/bin/nvim"
+£ export GOPATH=$HOME/go
+export PSQL_EDITOR="vim"
 
 # aliases
-alias tmux='TERM=screen-256color tmux -u'
+# alias tmux='TERM=screen-256color tmux -u'
 alias ls='ls -GFh'
-alias ll='ls -l'
+# alias ll='ls -l'
 alias py='ipython3'
 # alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
 alias gitlazy='git add -A; git commit -am.; git push'
