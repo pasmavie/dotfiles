@@ -25,7 +25,7 @@ export LANG=en_US.UTF-8
 # export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # export PATH="$PATH:/Applications/Julia-1.4.app/Contents/Resources/julia/bin"
 # export PATH="/usr/local/opt/llvm/bin:$PATH"
-£ export GOPATH=$HOME/go
+export GOPATH=$HOME/go
 export PSQL_EDITOR="vim"
 
 # aliases
