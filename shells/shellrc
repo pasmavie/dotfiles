@@ -14,7 +14,6 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-# conda activate ml
 
 # Language env 
 export LC_ALL=en_US.UTF-8
@@ -38,6 +37,4 @@ alias gitlazy='git add -A; git commit -am.; git push'
 alias t0='tmux a -t0'
 alias t1='tmux a -t1'
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+alias python38ds='/usr/local/opt/python@3.8/bin/python3'
