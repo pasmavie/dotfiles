@@ -36,5 +36,3 @@ alias py='ipython3'
 alias gitlazy='git add -A; git commit -am.; git push'
 alias t0='tmux a -t0'
 alias t1='tmux a -t1'
-
-alias python38ds='/usr/local/opt/python@3.8/bin/python3'
