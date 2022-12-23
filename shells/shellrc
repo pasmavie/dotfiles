@@ -15,24 +15,20 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# Language env 
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# export PAGER=less
-# export LESS="-iMSx4 -FX"
-# export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-# export PATH="$PATH:/Applications/Julia-1.4.app/Contents/Resources/julia/bin"
-# export PATH="/usr/local/opt/llvm/bin:$PATH"
+# export LC_ALL=en_US.UTF-8
+# export LANG=en_US.UTF-8
 export GOPATH=$HOME/go
 export PSQL_EDITOR="vim"
 
 # aliases
-# alias tmux='TERM=screen-256color tmux -u'
 alias ls='ls -GFh'
-# alias ll='ls -l'
 alias py='ipython3'
 # alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
 alias gitlazy='git add -A; git commit -am.; git push'
 alias t0='tmux a -t0'
 alias t1='tmux a -t1'
+
+alias todev="hash -r && export KUBECONFIG=~/.kube/dev.devtest-eks.config"
+alias totest="hash -r && export KUBECONFIG=~/.kube/test.devtest-eks.config"
+alias tointegration="hash -r && export KUBECONFIG=~/.kube/integration.prod-eks.config"
+alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
