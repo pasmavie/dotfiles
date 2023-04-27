@@ -32,3 +32,5 @@ alias todev="hash -r && export KUBECONFIG=~/.kube/REDACTED-KUBECONFIG"
 alias totest="hash -r && export KUBECONFIG=~/.kube/REDACTED-KUBECONFIG"
 alias tointegration="hash -r && export KUBECONFIG=~/.kube/REDACTED-KUBECONFIG"
 alias toprod="hash -r && export KUBECONFIG=~/.kube/REDACTED-KUBECONFIG"
+
+alias pants='/Users/gio/bin/pants'
