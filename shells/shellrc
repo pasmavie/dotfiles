@@ -33,4 +33,4 @@ alias totest="hash -r && export KUBECONFIG=~/.kube/test.devtest-eks.config"
 alias tointegration="hash -r && export KUBECONFIG=~/.kube/integration.prod-eks.config"
 alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
 
-export PATH="$HOME/bin/pants:$PATH"
+export PATH="$HOME/bin/:$PATH"
