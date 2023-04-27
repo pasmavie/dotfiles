@@ -23,7 +23,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git asdf)
+plugins=(git asdf aws)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -43,9 +43,13 @@ alias assume-role='function(){
 unset AWS_SECRET_ACCESS_KEY;
 unset AWS_SESSION_TOKEN;
 unset AWS_SECURITY_TOKEN;
-unset ASSUMED_ROLE
-eval $(command assume-role $@);
+unset ASSUMED_ROLE;
+eval $(command assume-role -duration=12h $@);
 }'
+alias assume-role-test='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; totest; eval $(command assume-role -duration=12h dev-test)'
+alias assume-role-dev='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; todev; eval $(command assume-role -duration=12h dev-test)'
+alias assume-role-integration='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; tointegration; eval $(command assume-role -duration=12h integration)'
+alias assume-role-production='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; toprod; eval $(command assume-role -duration=12h production)'
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/gio/.sdkman"
