@@ -20,9 +20,6 @@ if [ ! -d $HOME/.SpaceVim.d ]; then echo 'SpaceVim config folder not found. Make
 if [ -f $HOME/.SpaceVim.d/init.toml ]; then echo 'SpaceVim - Replacing the existing config file with a symlink to dotfiles/spacevim/init.toml'; mv $HOME/.SpaceVim.d/init.toml $HOME/.SpaceVim.d/old_init.toml;fi
 ln -s $HOME/dotfiles/spacevim/init.toml $HOME/.SpaceVim.d/init.toml
 
-# jetbrains
-ln -s $HOME/dotfiles/vim/ideavimrc $HOME/.ideavimrc
-
 # psql
 ln -s $HOME/dotfiles/psqlrc $HOME/.psqlrc
 
