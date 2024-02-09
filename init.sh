@@ -27,7 +27,7 @@ ln -s $HOME/dotfiles/vim/ideavimrc $HOME/.ideavimrc
 ln -s $HOME/dotfiles/psqlrc $HOME/.psqlrc
 
 # python
-ln -s $HOME/dotfiles/python/mypy.ini $HOME/.mypy.ini
+# ln -s $HOME/dotfiles/python/mypy.ini $HOME/.mypy.ini
 
 # zsh
 ln -s $HOME/dotfiles/shells/zshrc $HOME/.zshrc

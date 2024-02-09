@@ -1,29 +1,8 @@
 #!/bin/sh
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-# export LC_ALL=en_US.UTF-8
-# export LANG=en_US.UTF-8
-export GOPATH=$HOME/go
-export PSQL_EDITOR="vim"
-
 # aliases
 alias ls='ls -GFh'
 alias py='ipython3'
-# alias mountNTFS='sudo /usr/local/bin/ntfs-3g /dev/disk2s1 /Volumes/NTFS -olocal -oallow_other'
 alias gitlazy='git add -A; git commit -am.; git push'
 alias t0='tmux a -t0'
 alias t1='tmux a -t1'
@@ -33,4 +12,17 @@ alias totest="hash -r && export KUBECONFIG=~/.kube/test.devtest-eks.config"
 alias tointegration="hash -r && export KUBECONFIG=~/.kube/integration.prod-eks.config"
 alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
 
-export PATH="$HOME/bin/:$PATH"
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='vim'
+# fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="/Users/gio/.sdkman"
+# [[ -s "/Users/gio/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gio/.sdkman/bin/sdkman-init.sh"
+
+export PATH=$HOME/bin/:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=/usr/local/opt/python@3.8/bin:$PATH

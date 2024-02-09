@@ -27,30 +27,5 @@ plugins=(git asdf aws)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='vim'
-fi
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh -e
-
-alias assume-role='function(){
-unset AWS_SECRET_ACCESS_KEY;
-unset AWS_SESSION_TOKEN;
-unset AWS_SECURITY_TOKEN;
-unset ASSUMED_ROLE;
-eval $(command assume-role -duration=12h $@);
-}'
-alias assume-role-test='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; totest; eval $(command assume-role -duration=12h dev-test)'
-alias assume-role-dev='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; todev; eval $(command assume-role -duration=12h dev-test)'
-alias assume-role-integration='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; tointegration; eval $(command assume-role -duration=12h integration)'
-alias assume-role-production='unset AWS_SECRET_ACCESS_KEY; unset AWS_SESSION_TOKEN; unset AWS_SECURITY_TOKEN; unset ASSUMED_ROLE; toprod; eval $(command assume-role -duration=12h production)'
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/gio/.sdkman"
-[[ -s "/Users/gio/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gio/.sdkman/bin/sdkman-init.sh"
