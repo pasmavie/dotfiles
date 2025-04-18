@@ -41,9 +41,5 @@
 
 [[layers]]
   name = "lang#python"
-  enabled_linters = ['python', 'pylint']
-  python_interpreter = '/usr/local/opt/python@3.8/bin/python3'
-
-[[layers]]
-  name = 'lsp'
-  enabled_clients = ['pyright']
+# enabled_linters = ['python', 'pylint']
+  python_interpreter = '/Users/giovanni/.pyenv/versions/spacevim-python/bin/python'
