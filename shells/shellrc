@@ -25,3 +25,4 @@ alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
 
 export PATH=$HOME/bin/:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export PANTS_CONCURRENT=True
