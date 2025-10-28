@@ -23,6 +23,9 @@ alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
 # export SDKMAN_DIR="/Users/gio/.sdkman"
 # [[ -s "/Users/gio/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gio/.sdkman/bin/sdkman-init.sh"
 
+alias pants-check="pants list --changed-since=HEAD fmt lint && pants check --changed-since=HEAD --changed-dependents=transitive"
+alias pants-check-master="pants list --changed-since=origin/master fmt lint && pants check --changed-since=origin/master --changed-dependents=transitive"
+
 export PATH=$HOME/bin/:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 export PANTS_CONCURRENT=True
