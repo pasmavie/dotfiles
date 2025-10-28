@@ -7,11 +7,6 @@ alias gitlazy='git add -A; git commit -am.; git push'
 alias t0='tmux a -t0'
 alias t1='tmux a -t1'
 
-alias todev="hash -r && export KUBECONFIG=~/.kube/dev.devtest-eks.config"
-alias totest="hash -r && export KUBECONFIG=~/.kube/test.devtest-eks.config"
-alias tointegration="hash -r && export KUBECONFIG=~/.kube/integration.prod-eks.config"
-alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -19,13 +14,19 @@ alias toprod="hash -r && export KUBECONFIG=~/.kube/prod.prod-eks.config"
 #   export EDITOR='vim'
 # fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# Sdkman
 # export SDKMAN_DIR="/Users/gio/.sdkman"
 # [[ -s "/Users/gio/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/gio/.sdkman/bin/sdkman-init.sh"
 
+# Pants
 alias pants-check="pants list --changed-since=HEAD fmt lint && pants check --changed-since=HEAD --changed-dependents=transitive"
 alias pants-check-master="pants list --changed-since=origin/master fmt lint && pants check --changed-since=origin/master --changed-dependents=transitive"
+export PANTS_CONCURRENT=True
+
+# Pyenv stuff 
+# https://medium.com/marvelous-mlops/the-rightway-to-install-python-on-a-mac-f3146d9d9a32
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 export PATH=$HOME/bin/:$PATH
 export PATH=/opt/homebrew/bin:$PATH
-export PANTS_CONCURRENT=True
