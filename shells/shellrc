@@ -21,7 +21,7 @@ alias t1='tmux a -t1'
 # Pants
 alias pants-check="pants list --changed-since=HEAD fmt lint && pants check --changed-since=HEAD --changed-dependents=transitive"
 alias pants-check-master="pants list --changed-since=origin/master fmt lint && pants check --changed-since=origin/master --changed-dependents=transitive"
-export PANTS_CONCURRENT=True
+export PANTS_CONCURRENT=False
 
 export PATH=$HOME/bin/:$PATH
 export PATH=/opt/homebrew/bin:$PATH
