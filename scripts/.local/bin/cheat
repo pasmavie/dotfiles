@@ -1,0 +1,89 @@
+#!/usr/bin/env bash
+
+# Colors (Catppuccin Mocha)
+R='\033[0m'
+B='\033[1m'
+DIM='\033[2m'
+PEACH='\033[38;2;250;179;135m'
+GREEN='\033[38;2;166;227;161m'
+BLUE='\033[38;2;137;180;250m'
+YELLOW='\033[38;2;249;226;175m'
+MAUVE='\033[38;2;203;166;247m'
+TEXT='\033[38;2;205;214;244m'
+SURFACE='\033[38;2;69;71;90m'
+
+header() { echo -e "\n${B}${PEACH}━━━ $1 ━━━${R}"; }
+key() { printf "  ${GREEN}%-28s${R} ${TEXT}%s${R}\n" "$1" "$2"; }
+alias_line() { printf "  ${BLUE}%-28s${R} ${TEXT}%s${R}\n" "$1" "$2"; }
+divider() { echo -e "${SURFACE}  ─────────────────────────────────────────${R}"; }
+
+echo -e "${B}${MAUVE}"
+echo '  ╔══════════════════════════════════════╗'
+echo '  ║        Dotfiles v2 Cheatsheet        ║'
+echo '  ╚══════════════════════════════════════╝'
+echo -e "${R}"
+
+header "AeroSpace  ·  alt = modifier"
+key "alt + h/j/k/l" "Focus window"
+key "alt + shift + h/j/k/l" "Move window"
+key "alt + 1/2/3" "Switch workspace"
+key "alt + shift + 1/2/3" "Send window to workspace"
+key "alt + f" "Fullscreen"
+key "alt + shift + space" "Float / tile toggle"
+key "alt + r" "Rotate layout"
+key "alt + shift + r" "Resize mode (hjkl, esc)"
+key "alt + shift + b" "Balance sizes"
+key "alt + enter" "Open Ghostty"
+
+header "tmux  ·  C-b = prefix"
+key "C-h/j/k/l" "Navigate panes (no prefix)"
+key "C-b c" "New window"
+key "C-b \"" "Split horizontal"
+key "C-b %" "Split vertical"
+key "C-b H/J/K/L" "Resize pane"
+key "C-b S" "Join pane"
+key "t0 / t1" "Attach session (alias)"
+
+header "Shell  ·  modern CLI"
+alias_line "ls / ll / lt" "eza (icons, tree)"
+alias_line "cat" "bat (syntax highlight)"
+alias_line "grep" "rg (ripgrep)"
+alias_line "find" "fd"
+alias_line "z <dir>" "zoxide (smart cd)"
+alias_line "zi <dir>" "zoxide interactive"
+divider
+key "ctrl + r" "Fuzzy history (atuin)"
+key "ctrl + t" "Fuzzy file finder (fzf)"
+key "alt + c" "Fuzzy cd (fzf)"
+
+header "LazyVim  ·  space = leader"
+key "B / E" "Start / end of line"
+key "jj" "Escape (insert mode)"
+key "C-n / C-p" "Next / prev buffer"
+key "d" "Delete (no yank)"
+key "<leader>p" "Paste (no yank)"
+divider
+key "<leader>ff" "Find file"
+key "<leader>sg" "Live grep"
+key "<leader>e" "File explorer"
+key "<leader>," "Buffer list"
+key "gd / gr / K" "Go to def / refs / hover"
+key "<leader>ca" "Code action"
+key "<leader>" "Wait → show all keys"
+
+header "Git  ·  delta diffs"
+alias_line "git s" "Status (short)"
+alias_line "git l" "Log (oneline, 20)"
+alias_line "git lg" "Log graph"
+alias_line "git d / git ds" "Diff / diff staged"
+alias_line "git co / git cb" "Checkout / new branch"
+alias_line "git undo" "Reset soft HEAD~1"
+alias_line "git wip" "Add all + commit 'wip'"
+
+header "Modifier Map"
+echo -e "  ${YELLOW}alt${R}          → AeroSpace (windows)"
+echo -e "  ${YELLOW}C-b${R}          → tmux (multiplexer)"
+echo -e "  ${YELLOW}C-h/j/k/l${R}   → vim-tmux-navigator"
+echo -e "  ${YELLOW}space${R}        → LazyVim (editor)"
+echo -e "  ${YELLOW}super${R}        → Ghostty / macOS"
+echo ""

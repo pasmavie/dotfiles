@@ -1,0 +1,79 @@
+# ─────────────────────────────
+# Environment
+# ─────────────────────────────
+export EDITOR="nvim"
+export VISUAL="nvim"
+export LANG=en_US.UTF-8
+export PATH="$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:$PATH"
+
+# ─────────────────────────────
+# Pyenv
+# ─────────────────────────────
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+# ─────────────────────────────
+# Modern CLI tool integrations
+# ─────────────────────────────
+eval "$(zoxide init zsh)"
+
+source <(fzf --zsh)
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+
+eval "$(atuin init zsh)"
+
+# Starship prompt (must be last eval)
+eval "$(starship init zsh)"
+
+# ─────────────────────────────
+# Aliases — modern replacements
+# ─────────────────────────────
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -la --icons --group-directories-first'
+alias lt='eza --tree --level=2 --icons'
+alias cat='bat --paging=never'
+
+# ─────────────────────────────
+# Aliases — preserved from old setup
+# ─────────────────────────────
+alias py='ipython3'
+alias gitlazy='git add -A; git commit -am.; git push'
+alias t0='tmux a -t0'
+alias t1='tmux a -t1'
+
+# Pants
+alias pants-check="pants list --changed-since=HEAD fmt lint && pants check --changed-since=HEAD --changed-dependents=transitive"
+alias pants-check-master="pants list --changed-since=origin/master fmt lint && pants check --changed-since=origin/master --changed-dependents=transitive"
+export PANTS_CONCURRENT=True
+
+# AWS
+alias assume=". assume"
+
+# ─────────────────────────────
+# Zsh options
+# ─────────────────────────────
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+HISTSIZE=50000
+SAVEHIST=50000
+HISTFILE=~/.zsh_history
+
+# Completion
+autoload -Uz compinit && compinit
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+
+# ─────────────────────────────
+# Machine-specific env (if exists)
+# ─────────────────────────────
+[[ -f ~/.profile ]] && source ~/.profile

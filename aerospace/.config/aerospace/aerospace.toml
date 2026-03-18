@@ -1,0 +1,102 @@
+# AeroSpace — i3-like tiling window manager for macOS
+# Reference: https://nikitabobko.github.io/AeroSpace/guide
+
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Mouse follows focus
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
+
+# Pin workspaces to monitors
+# 1-2 = external, 3 = laptop
+[workspace-to-monitor-force-assignment]
+1 = 'ASUS PB287Q'
+2 = 'ASUS PB287Q'
+3 = 'Built-in Retina Display'
+
+[gaps]
+inner.horizontal = 15
+inner.vertical = 15
+outer.left = 20
+outer.right = 20
+outer.bottom = 20
+outer.top = 20
+
+# ──────────────────────────────────
+# Main mode keybindings
+# Ported from ~/dotfiles/chunkwm/skhdrc
+# ──────────────────────────────────
+[mode.main.binding]
+
+# Focus windows — alt + hjkl
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# Move windows — shift+alt + hjkl
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+# Switch workspace — 1-2 = external, 3 = laptop
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+
+# Move window to workspace
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+
+# Fullscreen toggle
+alt-f = 'fullscreen'
+
+# Float/tile toggle
+alt-shift-space = 'layout floating tiling'
+
+# Rotate layout
+alt-r = 'layout tiles horizontal vertical'
+
+# Join with (i3-like split behavior, compatible with normalizations)
+alt-v = 'join-with right'
+alt-shift-v = 'join-with down'
+
+# Equalize window sizes
+alt-shift-b = 'balance-sizes'
+
+# Open terminal
+alt-enter = 'exec-and-forget open -na Ghostty'
+
+# Enter resize mode
+alt-shift-r = 'mode resize'
+
+# Layout modes (from i3)
+alt-e = 'layout tiles horizontal vertical'
+alt-s = 'layout accordion horizontal vertical'
+
+# ──────────────────────────────────
+# Resize mode
+# ──────────────────────────────────
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+esc = 'mode main'
+enter = 'mode main'
+
+# ──────────────────────────────────
+# Float rules
+# ──────────────────────────────────
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
