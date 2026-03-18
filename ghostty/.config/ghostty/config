@@ -1,0 +1,35 @@
+# Font
+font-family = Hack Nerd Font
+font-size = 12
+
+# Theme
+theme = Catppuccin Mocha
+
+# Window
+window-decoration = true
+window-padding-x = 4
+window-padding-y = 4
+background-opacity = 0.95
+
+# CRITICAL: pass alt key through to AeroSpace
+macos-option-as-alt = true
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+
+# Scrollback
+scrollback-limit = 10000
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Shell integration
+shell-integration = zsh
+
+# Keybindings
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+keybind = super+equal=increase_font_size:1
+keybind = super+minus=decrease_font_size:1
+keybind = super+zero=reset_font_size
