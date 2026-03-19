@@ -11,8 +11,9 @@ window-padding-x = 4
 window-padding-y = 4
 background-opacity = 0.95
 
-# CRITICAL: pass alt key through to AeroSpace
-macos-option-as-alt = true
+# Let macOS handle Option key for special characters (€, #, etc.)
+# AeroSpace intercepts its bindings at the OS level before Ghostty sees them
+macos-option-as-alt = false
 
 # Cursor
 cursor-style = block
