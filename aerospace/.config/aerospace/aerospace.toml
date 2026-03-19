@@ -44,14 +44,14 @@ alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
 # Switch workspace — 1-2 = external, 3 = laptop
-alt-3 = 'workspace 1'
-alt-4 = 'workspace 2'
-alt-5 = 'workspace 3'
+alt-4 = 'workspace 1'
+alt-5 = 'workspace 2'
+alt-6 = 'workspace 3'
 
 # Move window to workspace
-alt-shift-3 = 'move-node-to-workspace 1'
-alt-shift-4 = 'move-node-to-workspace 2'
-alt-shift-5 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 1'
+alt-shift-5 = 'move-node-to-workspace 2'
+alt-shift-6 = 'move-node-to-workspace 3'
 
 # Fullscreen toggle
 alt-f = 'fullscreen'
