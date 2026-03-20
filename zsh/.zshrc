@@ -77,3 +77,19 @@ zstyle ':completion:*' menu select
 # Machine-specific env (if exists)
 # ─────────────────────────────
 [[ -f ~/.profile ]] && source ~/.profile
+
+# ─────────────────────────────
+# Key bindings (must be LAST — atuin/starship can reset the keymap)
+# ─────────────────────────────
+# Use vi keymap — navigate command line with vim motions (Esc to enter
+# normal mode, then b/w/e/0/$ etc.). Atuin already sets this, but be
+# explicit so it doesn't depend on atuin's behavior.
+bindkey -v
+
+# Fix backspace in vi insert mode — by default it won't delete past the
+# point where you entered insert mode
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
+
+# Restore Option+Backspace in vi insert mode (not bound by default)
+bindkey '^[^?' backward-kill-word
