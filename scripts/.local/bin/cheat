@@ -50,6 +50,7 @@ alias_line "cat" "bat (syntax highlight)"
 alias_line "grep" "rg (ripgrep)"
 alias_line "find" "fd"
 alias_line "z <dir>" "zoxide (smart cd)"
+alias_line "z fo ba" "multi-fragment match"
 alias_line "zi <dir>" "zoxide interactive"
 divider
 key "ctrl + r" "Fuzzy history (atuin)"
