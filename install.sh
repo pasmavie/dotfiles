@@ -48,6 +48,39 @@ fi
 echo "   stow git"
 stow git
 
+# ── Phase 4: Claude Code ──
+echo ""
+echo ">> Phase 4: Claude Code global config..."
+mkdir -p "$HOME/.claude"
+
+# notify.sh (hook script for desktop notifications)
+ln -sfn "$DOTFILES/claude-setup/notify.sh" "$HOME/.claude/notify.sh"
+echo "   Linked ~/.claude/notify.sh -> dotfiles"
+
+# rules directory (global instructions, split by topic)
+if [ -d "$HOME/.claude/rules" ] && [ ! -L "$HOME/.claude/rules" ]; then
+  echo "   Backing up existing rules -> rules.bak"
+  mv "$HOME/.claude/rules" "$HOME/.claude/rules.bak"
+fi
+ln -sfn "$DOTFILES/claude-setup/rules" "$HOME/.claude/rules"
+echo "   Linked ~/.claude/rules -> dotfiles"
+
+# settings.json (hooks, plugins, permissions)
+if [ -f "$HOME/.claude/settings.json" ] && [ ! -L "$HOME/.claude/settings.json" ]; then
+  echo "   Backing up existing settings.json -> settings.json.bak"
+  mv "$HOME/.claude/settings.json" "$HOME/.claude/settings.json.bak"
+fi
+ln -sfn "$DOTFILES/claude-setup/settings.json" "$HOME/.claude/settings.json"
+echo "   Linked ~/.claude/settings.json -> dotfiles"
+
+# skills directory
+if [ -d "$HOME/.claude/skills" ] && [ ! -L "$HOME/.claude/skills" ]; then
+  echo "   Backing up existing skills -> skills.bak"
+  mv "$HOME/.claude/skills" "$HOME/.claude/skills.bak"
+fi
+ln -sfn "$DOTFILES/claude-setup/skills" "$HOME/.claude/skills"
+echo "   Linked ~/.claude/skills -> dotfiles"
+
 echo ""
 echo "══════════════════════════════════════"
 echo "  Safe packages installed!"
