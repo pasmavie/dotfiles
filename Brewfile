@@ -11,6 +11,10 @@ cask "ghostty"
 brew "starship"
 brew "stow"
 
+# Dev tools
+brew "node"
+brew "wget"
+
 # Modern CLI
 brew "fzf"
 brew "ripgrep"

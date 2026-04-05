@@ -1,33 +1,4 @@
 {
-  "hooks": {
-    "Notification": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/notify.sh 'Claude Code' 'Awaiting input'"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$HOME/.claude/notify.sh 'Claude Code' 'Task completed'"
-          }
-        ]
-      }
-    ]
-  },
-  "enabledPlugins": {
-    "atlassian@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
   "permissions": {
     "allow": [
       "Bash(python:*)",
@@ -58,5 +29,35 @@
       "mcp__jetbrains__open_file_in_editor",
       "mcp__jetbrains__rename_refactoring"
     ]
-  }
+  },
+  "model": "sonnet",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/notify.sh 'Claude Code' 'Awaiting input'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/notify.sh 'Claude Code' 'Task completed'"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "atlassian@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high"
 }
