@@ -27,9 +27,9 @@ fi
 echo ""
 echo ">> Phase 3: Stowing configs that won't conflict..."
 
-for pkg in aerospace ghostty bat atuin; do
+for pkg in aerospace ghostty atuin scripts; do
   echo "   stow $pkg"
-  stow "$pkg"
+  stow --dotfiles "$pkg"
 done
 
 # Starship: back up existing file if it's not a symlink
@@ -38,7 +38,7 @@ if [ -f "$HOME/.config/starship.toml" ] && [ ! -L "$HOME/.config/starship.toml" 
   mv "$HOME/.config/starship.toml" "$HOME/.config/starship.toml.bak"
 fi
 echo "   stow starship"
-stow starship
+stow --dotfiles starship
 
 # Git: back up existing config if needed
 if [ -f "$HOME/.config/git/ignore" ] && [ ! -L "$HOME/.config/git/ignore" ]; then
@@ -46,7 +46,7 @@ if [ -f "$HOME/.config/git/ignore" ] && [ ! -L "$HOME/.config/git/ignore" ]; the
   mv "$HOME/.config/git/ignore" "$HOME/.config/git/ignore.bak"
 fi
 echo "   stow git"
-stow git
+stow --dotfiles git
 
 # ── Phase 4: Claude Code ──
 echo ""
@@ -90,13 +90,13 @@ echo "The following require removing old symlinks first."
 echo "Switch them over when you're ready:"
 echo ""
 echo "  # Switch zsh (replaces oh-my-zsh + p10k with starship)"
-echo "  rm ~/.zshrc && cd $DOTFILES && stow zsh"
+echo "  rm ~/.zshrc && cd $DOTFILES && stow --dotfiles zsh"
 echo ""
 echo "  # Switch tmux (adds Catppuccin theme, true color)"
-echo "  rm ~/.tmux.conf && cd $DOTFILES && stow tmux"
+echo "  rm ~/.tmux.conf && cd $DOTFILES && stow --dotfiles tmux"
 echo ""
 echo "  # Switch nvim (replaces SpaceVim with LazyVim)"
-echo "  rm ~/.config/nvim && cd $DOTFILES && stow nvim"
+echo "  rm ~/.config/nvim && cd $DOTFILES && stow --dotfiles nvim"
 echo ""
 echo "After switching, open Ghostty (alt+enter if AeroSpace is running)"
 echo "and run 'cheat' for the full keybinding reference."
