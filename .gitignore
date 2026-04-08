@@ -1,2 +1,5 @@
 .projects
 .DS_Store
+claude-setup/settings.json
+claude-setup/settings.local.json
+nvim/dot-config/nvim/lazy-lock.json
