@@ -65,14 +65,6 @@ fi
 ln -sfn "$DOTFILES/claude-setup/rules" "$HOME/.claude/rules"
 echo "   Linked ~/.claude/rules -> dotfiles"
 
-# settings.json (hooks, plugins, permissions)
-if [ -f "$HOME/.claude/settings.json" ] && [ ! -L "$HOME/.claude/settings.json" ]; then
-  echo "   Backing up existing settings.json -> settings.json.bak"
-  mv "$HOME/.claude/settings.json" "$HOME/.claude/settings.json.bak"
-fi
-ln -sfn "$DOTFILES/claude-setup/settings.json" "$HOME/.claude/settings.json"
-echo "   Linked ~/.claude/settings.json -> dotfiles"
-
 # skills directory
 if [ -d "$HOME/.claude/skills" ] && [ ! -L "$HOME/.claude/skills" ]; then
   echo "   Backing up existing skills -> skills.bak"
