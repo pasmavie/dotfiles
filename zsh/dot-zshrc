@@ -77,7 +77,7 @@ zstyle ':completion:*' menu select
 # Machine-specific env (if exists)
 # ─────────────────────────────
 [[ -f ~/.profile ]] && source ~/.profile
-
+eval "$(direnv hook zsh)"
 # ─────────────────────────────
 # Key bindings (must be LAST — atuin/starship can reset the keymap)
 # ─────────────────────────────
