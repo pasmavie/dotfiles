@@ -25,3 +25,7 @@ map("v", "<C-y>", '"*y', { desc = "Yank to system clipboard" })
 
 -- Close buffer without closing window
 map("n", "<C-q>", "<cmd>bp|bd #<CR>", { desc = "Close buffer, keep window" })
+
+-- Neo-tree toggle
+vim.keymap.del("n", "<leader>e")
+map("n", "<leader>t", "<cmd>Neotree toggle<CR>", { desc = "Toggle file tree" })

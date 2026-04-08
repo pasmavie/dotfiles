@@ -16,7 +16,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
   },
-  defaults = { lazy = false, version = false },
+  defaults = { lazy = true, version = false },
   checker = { enabled = true },
   performance = {
     rtp = {
