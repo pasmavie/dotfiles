@@ -30,7 +30,7 @@
       "mcp__jetbrains__rename_refactoring"
     ]
   },
-  "model": "sonnet",
+  "model": "haiku",
   "hooks": {
     "Notification": [
       {
