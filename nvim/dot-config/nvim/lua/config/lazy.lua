@@ -17,7 +17,9 @@ require("lazy").setup({
     { import = "plugins" },
   },
   defaults = { lazy = true, version = false },
-  checker = { enabled = true },
+  checker = { enabled = false },
+  news = { lazyvim = false, neovim = false },
+  change_detection = { notify = false },
   performance = {
     rtp = {
       disabled_plugins = {
