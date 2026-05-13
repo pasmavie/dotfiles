@@ -27,7 +27,7 @@ fi
 echo ""
 echo ">> Phase 3: Stowing configs that won't conflict..."
 
-for pkg in aerospace ghostty atuin scripts; do
+for pkg in aerospace ghostty atuin scripts markdownlint; do
   echo "   stow $pkg"
   stow --dotfiles "$pkg"
 done
