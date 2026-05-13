@@ -3,10 +3,10 @@ return {
 		"maxmx03/solarized.nvim",
 		priority = 1000,
 		init = function()
-			vim.o.background = "light"
+			vim.o.background = "dark"
 		end,
 		opts = {
-			variant = "summer",
+			variant = "winter",
 		},
 	},
 	{

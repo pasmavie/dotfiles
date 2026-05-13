@@ -3,12 +3,7 @@ font-family = Hack Nerd Font
 font-size = 12
 
 # Theme
-theme = iTerm2 Solarized Light
-
-# Darken low-contrast solarized light colors
-palette = 3=#7a5c00
-palette = 4=#1a62b0
-palette = 6=#1a7a72
+theme = iTerm2 Solarized Dark
 
 # Window
 window-decoration = true
