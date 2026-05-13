@@ -1,24 +1,5 @@
 return {
   {
-    "mfussenegger/nvim-lint",
-    opts = function(_, opts)
-      opts.linters_by_ft = opts.linters_by_ft or {}
-      opts.linters_by_ft.markdown = { "markdownlint-file" }
-      opts.linters = opts.linters or {}
-      opts.linters["markdownlint-file"] = {
-        cmd = "markdownlint-cli2",
-        stdin = false,
-        args = {},
-        ignore_exitcode = true,
-        stream = "stderr",
-        parser = require("lint.parser").from_errorformat("%f:%l:%c %m,%f:%l %m", {
-          source = "markdownlint",
-          severity = vim.diagnostic.severity.WARN,
-        }),
-      }
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
