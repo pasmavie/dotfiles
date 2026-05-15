@@ -1,9 +1,3 @@
-# Taps (must come first)
-tap "nikitabobko/tap"
-
-# Tiling WM
-cask "nikitabobko/tap/aerospace"
-
 # Terminal
 cask "ghostty"
 

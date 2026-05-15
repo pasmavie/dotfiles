@@ -11,8 +11,8 @@ window-padding-x = 4
 window-padding-y = 4
 background-opacity = 0.95
 
-# Send Option key as Alt for terminal keybindings (word-movement, etc.)
-# AeroSpace intercepts its bindings at the OS level before Ghostty sees them
+# Option composes macOS special characters (Ç, Ó, etc.) when false.
+# Set to true to send Esc-prefixed Alt sequences to the shell instead.
 macos-option-as-alt = false
 
 # Cursor

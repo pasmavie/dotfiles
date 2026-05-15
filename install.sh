@@ -27,7 +27,7 @@ fi
 echo ""
 echo ">> Phase 3: Stowing configs that won't conflict..."
 
-for pkg in aerospace ghostty atuin scripts markdownlint; do
+for pkg in ghostty atuin scripts markdownlint; do
   echo "   stow $pkg"
   stow --dotfiles "$pkg"
 done
@@ -90,5 +90,4 @@ echo ""
 echo "  # Switch nvim (replaces SpaceVim with LazyVim)"
 echo "  rm ~/.config/nvim && cd $DOTFILES && stow --dotfiles nvim"
 echo ""
-echo "After switching, open Ghostty (alt+enter if AeroSpace is running)"
-echo "and run 'cheat' for the full keybinding reference."
+echo "After switching, open Ghostty and run 'cheat' for the full keybinding reference."
