@@ -23,18 +23,6 @@ echo '  ║        Dotfiles v2 Cheatsheet        ║'
 echo '  ╚══════════════════════════════════════╝'
 echo -e "${R}"
 
-header "AeroSpace  ·  alt = modifier"
-key "alt + h/j/k/l" "Focus window"
-key "alt + shift + h/j/k/l" "Move window"
-key "alt + 1/2/3" "Switch workspace"
-key "alt + shift + 1/2/3" "Send window to workspace"
-key "alt + f" "Fullscreen"
-key "alt + shift + space" "Float / tile toggle"
-key "alt + r" "Rotate layout"
-key "alt + shift + r" "Resize mode (hjkl, esc)"
-key "alt + shift + b" "Balance sizes"
-key "alt + enter" "Open Ghostty"
-
 header "tmux  ·  C-b = prefix"
 key "C-h/j/k/l" "Navigate panes (no prefix)"
 key "C-b c" "New window"
@@ -101,7 +89,6 @@ alias_line "git undo" "Reset soft HEAD~1"
 alias_line "git wip" "Add all + commit 'wip'"
 
 header "Modifier Map"
-echo -e "  ${YELLOW}alt${R}          → AeroSpace (windows)"
 echo -e "  ${YELLOW}C-b${R}          → tmux (multiplexer)"
 echo -e "  ${YELLOW}C-h/j/k/l${R}   → vim-tmux-navigator"
 echo -e "  ${YELLOW}space${R}        → LazyVim (editor)"
