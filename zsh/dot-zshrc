@@ -54,6 +54,10 @@ export PANTS_CONCURRENT=True
 # AWS
 alias assume=". assume"
 
+# Security
+export SAFE_CHAIN_MIN_PACKAGE_AGE_HOURS=168
+export SAFE_CHAIN_MINIMUM_PACKAGE_AGE_EXCLUSIONS="@90poe/*"
+
 # ─────────────────────────────
 # Zsh options
 # ─────────────────────────────
@@ -79,6 +83,7 @@ zstyle ':completion:*' menu select
 # ─────────────────────────────
 [[ -f ~/.profile ]] && source ~/.profile
 eval "$(direnv hook zsh)"
+
 # ─────────────────────────────
 # Key bindings (must be LAST — atuin/starship can reset the keymap)
 # ─────────────────────────────
@@ -94,3 +99,4 @@ bindkey '^H' backward-delete-char
 
 # Restore Option+Backspace in vi insert mode (not bound by default)
 bindkey '^[^?' backward-kill-word
+source /Users/giovanni/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
