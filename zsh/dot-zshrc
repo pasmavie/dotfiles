@@ -53,6 +53,7 @@ export PANTS_CONCURRENT=True
 
 # AWS
 alias assume=". assume"
+alias todev='hash -r && export KUBECONFIG=~/.kube/dev.devtest-eks.config'
 
 # Security
 export SAFE_CHAIN_MIN_PACKAGE_AGE_HOURS=168
