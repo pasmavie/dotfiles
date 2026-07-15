@@ -10,24 +10,26 @@
 
 ## Processing cost
 
-The user multitasks across sessions and returns to answers cold. Optimise for
-time-to-process, not word count. Details that matter must be included; never cut
-substance for brevity.
+The user multitasks across sessions and returns to answers cold.
+Optimise for time-to-process.
+The shape: a clear, simple summary at the top, details below, layered by importance.
 
 The line below is injected on every turn by the UserPromptSubmit hook in
 ~/.claude/settings.json, which greps this file for the RULE: prefix. Keep it one line.
 
-RULE: Open with a summary of at most three plain sentences stating the outcome, not the topic; layer detail by importance; keep every detail that matters. Long is acceptable, dense is not.
+RULE: Open with a clear, simple summary of at most three sentences stating the outcome, then details below ordered by importance. Keep the answer short and plain: include a detail only if it changes what the user does or decides next, and cut the rest.
 
-- Open every answer with a plain-language summary of at most three sentences that
-  stands on its own. It states the outcome or answer, not the topic. The reader
-  decides from it whether to read further.
-- Layer what follows by importance, so reading can stop at any point without
-  losing the conclusion. Put the decision or result first, supporting detail after.
-- One idea per sentence. Everyday words over jargon. No dense multi-clause
-  sentences.
-- Refer to things by their full name every time. Never rely on the reader
-  remembering shorthand or numbering from earlier messages.
-- A long answer is acceptable when the content demands it. A dense one never is.
-- When reporting multi-step or parallel work, report per item: what changed,
-  whether it worked, what needs the user. No process narration.
+- Open every answer with a plain-language summary of at most three sentences that stands on its own.
+  It states the outcome or answer, not the topic.
+  The reader decides from it whether to read further.
+- Put details below the summary, ordered by importance, so reading can stop at any point without losing the conclusion.
+- Include a detail only if it changes what the user does or decides next.
+  Material risks, blockers, and errors always qualify.
+  Cut the rest; do not compensate by compressing the writing into fragments or jargon.
+- One idea per sentence.
+  Everyday words over jargon.
+  No dense multi-clause sentences.
+- Refer to things by their full name every time.
+  Never rely on the reader remembering shorthand or numbering from earlier messages.
+- When reporting multi-step or parallel work, report per item: what changed, whether it worked, what needs the user.
+  No process narration.
