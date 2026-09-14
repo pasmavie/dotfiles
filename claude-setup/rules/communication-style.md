@@ -33,3 +33,10 @@ RULE: Open with a clear, simple summary of at most three sentences stating the o
   Never rely on the reader remembering shorthand or numbering from earlier messages.
 - When reporting multi-step or parallel work, report per item: what changed, whether it worked, what needs the user.
   No process narration.
+
+## Documentation for humans (notes, tickets, summaries, reports)
+
+- Give the intuition, not the mechanism.
+  One or two plain sentences per concept; the code and docstrings hold the details.
+- Use the field's established term (MRZ, not "the zone") and stick to it.
+  Never invent a label for something that already has a name.
