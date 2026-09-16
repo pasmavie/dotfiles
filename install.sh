@@ -65,10 +65,6 @@ mkdir -p "$HOME/.claude"
 ln -sfn "$DOTFILES/claude-setup/notify.sh" "$HOME/.claude/notify.sh"
 echo "   Linked ~/.claude/notify.sh -> dotfiles"
 
-# settings.json (permissions, hooks, model, denied MCP connectors)
-ln -sfn "$DOTFILES/claude-setup/settings.json" "$HOME/.claude/settings.json"
-echo "   Linked ~/.claude/settings.json -> dotfiles"
-
 # rules directory (global instructions, split by topic)
 if [ -d "$HOME/.claude/rules" ] && [ ! -L "$HOME/.claude/rules" ]; then
   echo "   Backing up existing rules -> rules.bak"
