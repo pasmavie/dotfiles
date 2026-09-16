@@ -6,6 +6,7 @@ brew "starship"
 brew "stow"
 
 # Dev tools
+brew "git-filter-repo"
 brew "node"
 brew "wget"
 

@@ -48,6 +48,14 @@ fi
 echo "   stow git"
 stow --dotfiles git
 
+# SSH config: back up existing file if it's not a symlink
+if [ -f "$HOME/.ssh/config" ] && [ ! -L "$HOME/.ssh/config" ]; then
+  echo "   Backing up existing ssh config -> config.bak"
+  mv "$HOME/.ssh/config" "$HOME/.ssh/config.bak"
+fi
+echo "   stow ssh"
+stow --dotfiles ssh
+
 # ── Phase 4: Claude Code ──
 echo ""
 echo ">> Phase 4: Claude Code global config..."
@@ -56,6 +64,10 @@ mkdir -p "$HOME/.claude"
 # notify.sh (hook script for desktop notifications)
 ln -sfn "$DOTFILES/claude-setup/notify.sh" "$HOME/.claude/notify.sh"
 echo "   Linked ~/.claude/notify.sh -> dotfiles"
+
+# settings.json (permissions, hooks, model, denied MCP connectors)
+ln -sfn "$DOTFILES/claude-setup/settings.json" "$HOME/.claude/settings.json"
+echo "   Linked ~/.claude/settings.json -> dotfiles"
 
 # rules directory (global instructions, split by topic)
 if [ -d "$HOME/.claude/rules" ] && [ ! -L "$HOME/.claude/rules" ]; then
