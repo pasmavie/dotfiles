@@ -4,7 +4,7 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
 export LANG=en_US.UTF-8
-export PATH="$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:/opt/homebrew/bin:$HOME/go/bin:$PATH"
 export CHROMIUM_EXECUTABLE_PATH="$HOME/Library/Caches/ms-playwright/chromium-1200/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing"
 
 # ─────────────────────────────
@@ -53,14 +53,15 @@ export PANTS_CONCURRENT=True
 
 # AWS
 alias assume=". assume"
-alias todev='hash -r && export KUBECONFIG=~/.kube/REDACTED-KUBECONFIG'
+
+# Work-specific config, not in git (see Keybase laptop-migration)
+[ -f "$HOME/.config/zsh/work.zsh" ] && source "$HOME/.config/zsh/work.zsh"
 
 # Postgres utils
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 # Security
 export SAFE_CHAIN_MIN_PACKAGE_AGE_HOURS=168
-export SAFE_CHAIN_MINIMUM_PACKAGE_AGE_EXCLUSIONS="@REDACTED-ORG/*"
 
 # ─────────────────────────────
 # Zsh options
