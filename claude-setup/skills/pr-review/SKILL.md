@@ -168,5 +168,6 @@ The workflow is strong on code bugs but thin on these. Add them yourself:
 
 ## Style
 
-- Direct, no fluff, no wrap-ups. Never use em dashes; restructure the sentence or use "->".
+- All wording rules, for the report and for the drafted PR comments, live in
+  `~/.claude/rules/communication-style.md`. That file is the single source; do not restate it here.
 - Verify tool/library behaviour by running commands, not from memory.
