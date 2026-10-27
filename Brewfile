@@ -9,6 +9,10 @@ brew "stow"
 brew "git-filter-repo"
 brew "node"
 brew "wget"
+brew "direnv"
+brew "pyenv"
+brew "pyenv-virtualenv"
+brew "libpq"
 
 # Modern CLI
 brew "fzf"
@@ -21,6 +25,8 @@ brew "jq"
 brew "yq"
 brew "delta"
 brew "tree"
+brew "bat"
+brew "tmux"
 
 # Editor
 brew "neovim"

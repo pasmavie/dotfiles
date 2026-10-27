@@ -27,6 +27,10 @@ fi
 echo ""
 echo ">> Phase 3: Stowing configs that won't conflict..."
 
+# Pre-create dirs that hold untracked local files, so stow links files
+# inside them instead of folding the whole dir into the repo
+mkdir -p "$HOME/.config/git" "$HOME/.config/zsh"
+
 for pkg in ghostty atuin scripts markdownlint; do
   echo "   stow $pkg"
   stow --dotfiles "$pkg"
@@ -72,14 +76,6 @@ if [ -d "$HOME/.claude/rules" ] && [ ! -L "$HOME/.claude/rules" ]; then
 fi
 ln -sfn "$DOTFILES/claude-setup/rules" "$HOME/.claude/rules"
 echo "   Linked ~/.claude/rules -> dotfiles"
-
-# skills directory
-if [ -d "$HOME/.claude/skills" ] && [ ! -L "$HOME/.claude/skills" ]; then
-  echo "   Backing up existing skills -> skills.bak"
-  mv "$HOME/.claude/skills" "$HOME/.claude/skills.bak"
-fi
-ln -sfn "$DOTFILES/claude-setup/skills" "$HOME/.claude/skills"
-echo "   Linked ~/.claude/skills -> dotfiles"
 
 echo ""
 echo "══════════════════════════════════════"

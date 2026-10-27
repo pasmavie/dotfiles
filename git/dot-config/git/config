@@ -53,3 +53,7 @@
 
 [advice]
     addIgnoredFile = false
+
+# Machine-local overrides (e.g. work email), not in git
+[include]
+    path = ~/.config/git/local

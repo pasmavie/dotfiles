@@ -104,4 +104,4 @@ bindkey '^H' backward-delete-char
 
 # Restore Option+Backspace in vi insert mode (not bound by default)
 bindkey '^[^?' backward-kill-word
-source /Users/giovanni/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+[ -f "$HOME/.safe-chain/scripts/init-posix.sh" ] && source "$HOME/.safe-chain/scripts/init-posix.sh" # Safe-chain Zsh initialization script
