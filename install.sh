@@ -65,10 +65,6 @@ echo ""
 echo ">> Phase 4: Claude Code global config..."
 mkdir -p "$HOME/.claude"
 
-# notify.sh (hook script for desktop notifications)
-ln -sfn "$DOTFILES/claude-setup/notify.sh" "$HOME/.claude/notify.sh"
-echo "   Linked ~/.claude/notify.sh -> dotfiles"
-
 # rules directory (global instructions, split by topic)
 if [ -d "$HOME/.claude/rules" ] && [ ! -L "$HOME/.claude/rules" ]; then
   echo "   Backing up existing rules -> rules.bak"
