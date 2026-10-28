@@ -79,6 +79,8 @@ SAVEHIST=50000
 HISTFILE=~/.zsh_history
 
 # Completion
+# Docker CLI completions (from Docker Desktop); must be on fpath before compinit
+fpath=($HOME/.docker/completions $fpath)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
